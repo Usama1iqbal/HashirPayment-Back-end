@@ -420,4 +420,14 @@ router.post('/process-payment', async (req, res) => {
   }
 });
 
+
+router.get('/company', async (req, res) => {
+  try {
+    const companies = await RegisterForm.find();
+    res.json(companies);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router
